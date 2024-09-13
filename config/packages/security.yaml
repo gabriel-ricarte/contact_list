@@ -14,10 +14,8 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-
         main:
             anonymous: true
-            lazy: true
             provider: in_memory
             form_login:
                 login_path: login
@@ -27,7 +25,7 @@ security:
                 target: /
             guard:
                 authenticators:
-                    - App\Security\LoginFormAuthenticator
+                    - App\Security\AppCustomAuthenticator
 
     access_control:
         - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
